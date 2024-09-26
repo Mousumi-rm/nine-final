@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.css'
 import bg2 from '../../assets/images/bg2.png'
 import { useState } from 'react';
