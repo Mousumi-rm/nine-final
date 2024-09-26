@@ -1,0 +1,14 @@
+.banner{
+    font-size: 30px;
+    font-weight: 700;
+    font: bolder;
+
+}
+.Banner-button{
+   color:white ;
+}
+.banner-img{
+    width: 40%;
+    height:40%;
+    object-fit:cover;    
+}

@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// isHome? 'none': '../../assets/images/bg2.png'      
+/* <div className=' banner-img absolute mb-5 lg:hidden'>{bg}</div> */
+// const isHome = location.appliedJob !== '/'
+  // const isJob = location.appliedJob == '/appliedJob'
+  /*
+  {
+                          location.appliedJob === '/appliedJob' &&  (
+                          <img className='banner-img' src={bg2} alt="Applied Job Banner" />
+                          )
+                          }
+                          {!hidden && (
+                          <img className='banner-img' src={bg2} alt="Home Banner" />
+                            )}
+  
+  */ 
+ // const location = useLocation();
+  // const hidden = location.appliedJob !== '/'
+  // let isHome;
+  // if(location.appliedJob === '/appliedJob'){
+  //  isHome = <img className='banner-img' src={bg2} alt="" />
+  // }
+  // else{
+  //   { !hidden && <img className='banner-img' src={bg2} alt="" /> }
+  // }
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+
+    // let isHome;
+
+  // // Check if we're on a specific path
+  // if (location.appliedJob === '/appliedJob') {
+  //   isHome = <img src={bg2} alt="Applied Job Banner" />;
+  // } else if (!hidden) {
+  //   // If not hidden, show the image (likely on the home page)
+  // }
+
+  // const bg = <>
+  //     <img className='banner-img' src={bg2} alt="" />
+  // </>
+/*
+ {location === '/appliedJob'? <img className='banner-img' src={bg2} alt="Applied Job Banner" />: hidden }
+  const location = useLocation();
+  const hidden = location.appliedJob !== '/';  
+
+*/   
