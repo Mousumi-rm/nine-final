@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect} from 'react';
 import { useState  } from 'react';
-import { NavLink } from 'react-router-dom';
 import ShowJob from './ShowJob';
 
 const FeaturedJob = () => {
@@ -21,7 +20,7 @@ const FeaturedJob = () => {
                 <h2 className='text-4xl font-bold font-sans '>Featured Jobs</h2>
                 <p className=' text-gray-500 mt-5'><small>Explore thousands of job opportunities with all the information you need. Its your future</small></p>
             </section>
-            <section>
+            <section className= ' my-container gap-5 grid lg:grid-cols-2 sm:grid-rows-1 '>
                 {
                     loader.slice(0,dataLength).map(job =><ShowJob
                       key={job.id}
@@ -29,7 +28,7 @@ const FeaturedJob = () => {
                     ></ShowJob>)
                 }
             </section>
-            <section className='h-screen flex items-center justify-center mt-10'>
+             <section className='my-36 flex items-center justify-center'>
 
                  <div className={dataLength === loader.length ? 'hidden':''}>
                  <button className='text-white  bg-gradient-to-r from-indigo-400 to-purple-500 px-4 py-2 rounded-md' 

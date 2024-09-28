@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import {  NavLink} from 'react-router-dom';
 import './Header.css'
 import bg2 from '../../assets/images/bg2.png'
 import { useState } from 'react';
@@ -17,8 +17,10 @@ const Header = () => {
       <NavLink className={({isActive})=>(isActive ? 'text-cyan-500':'')}  onClick={()=>setShow(true)}
        to='/appliedJob'><small className='mr-5'>appliedJob</small></NavLink>
 
-      <NavLink className={({isActive})=>(isActive ? 'text-cyan-500':'')} onClick={()=>setShow(false)} to='/Blog'><small  
-      className='mr-5'>Blog</small></NavLink>
+      <NavLink className={({isActive})=>(isActive ? 'text-cyan-500':'')} onClick={()=>setShow(true)} to='/Blog'><small  
+      className='mr-5'>Blog</small></NavLink> 
+
+       
   </>  
   
   
@@ -29,7 +31,7 @@ const Header = () => {
               <div className='mt-10 text-gray-500'>
                 {link}
               </div>
-             <label className='flex justify-center items-center relative' htmlFor="">
+             <label className='flex justify-center items-center relative'>
                 <button className='relative Banner-button mt-10  bg-gradient-to-r from-indigo-400 to-purple-500 px-5 py-3
                  rounded-md'>Applied-Now</button>
                   {

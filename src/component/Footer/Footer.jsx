@@ -4,7 +4,7 @@ import social from "../../assets/icons/social.png";
 const Footer = () => {
     return (
         <div className=' bg-black text-white '>
-            <footer className="p-10 bg-base-200 text-base-content">
+            <footer className="p-5 bg-base-200 text-base-content">
             <div className="footer max-w-6xl mx-auto flex flex-col lg:flex-row items-start justify-evenly mb-10">
                 <div className='mr-16 p-5'>
                     <h1 className='text-4xl font-bold font-sans'>Step-On</h1>
