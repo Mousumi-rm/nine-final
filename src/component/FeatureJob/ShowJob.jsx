@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import location2 from '../../assets/icons/location2.png'
+import Location from '../../assets/icons/Location.png'
 import money from '../../assets/icons/money.png'
 
 
@@ -25,7 +25,7 @@ const ShowJob = ({job}) => {
                             </div>
                             <div className= 'mb-5  flex items-center justify-center mt-4'>
                                 <div className=' flex items-center justify-around'>
-                                 <img src={location2} alt="location2" />
+                                 <img src={Location} alt="location" />
                                   <p className='mr-20 ml-2 -mx-5'>{location}</p>
                                 </div>
                                 <div className=' flex items-center justify-around'>

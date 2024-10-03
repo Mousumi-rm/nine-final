@@ -3,7 +3,7 @@ import social from "../../assets/icons/social.png";
 
 const Footer = () => {
     return (
-        <div className=' bg-black text-white '>
+        <div className=' bg-black text-white  '>
             <footer className="p-5 bg-base-200 text-base-content">
             <div className="footer max-w-6xl mx-auto flex flex-col lg:flex-row items-start justify-evenly mb-10">
                 <div className='mr-16 p-5'>

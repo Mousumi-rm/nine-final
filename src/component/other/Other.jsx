@@ -1,241 +1,74 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
+import bg1 from '../../assets/images/bg1.png';
+import './JobDetails.css';
 
 const JobDetails = () => {
-  const { id } = useParams();
-  const [job, setJob] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+    const job = useLoaderData();
+    const { company_name, logo, job_title, remote_or_onsite, job_type, location, salary, address, phone, email } = job;
 
-  useEffect(() => {
-    fetch('/jobs.json') // Ensure the path is correct
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return res.json();
-      })
-      .then(data => {
-        const jobDetails = data.find(job => job.id === parseInt(id));
-        if (jobDetails) {
-          setJob(jobDetails);
-        } else {
-          setError(true);
-        }
-        setLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
-      });
-  }, [id]);
+    return (
+        <div className='job-details-page'>
 
-  if (loading) return <div>Loading...</div>;
-  if (error || !job) return <div>Job not found.</div>;
+            {/* Header Section */}
+            <section className='relative vh-100 overflow-hidden bg-gray-100'>
+                <img className='w-48 h-28 absolute top-32 mt-3 left-0 z-0' src={bg1} alt="Background" />
+                <div className='relative flex items-center justify-center mb-20 mt-36'>
+                    <h1 className='text-4xl font-bold font-sans'>Job Details</h1>
+                </div>
+            </section>
 
-  const { company_name, logo, job_title, remote_or_onsite, job_type, location, salary } = job;
+            {/* Main Content */}
+            <div className='flex flex-col lg:flex-row items-start justify-between bg-white mt-10 px-10 py-16'>
 
-  return (
-    <div className='container mx-auto p-10 bg-white'>
-      <div className='flex items-center mb-6'>
-        <img className='w-40 h-10 mr-5' src={logo} alt={`${company_name} logo`} />
-        <div>
-          <h1 className='text-2xl font-bold'>{job_title}</h1>
-          <p className='text-gray-600'>{company_name}</p>
+                {/* Job Description Section */}
+                <div className='lg:w-2/3'>
+                    <h2 className='text-2xl font-semibold mb-6'>Job Description</h2>
+                    <p className='mb-4'>
+                        A UI/UX (User Interface/User Experience) designer is responsible for designing and creating engaging and effective interfaces for software and web applications. This includes designing the layout, visual design, and interactivity of the user interface.
+                    </p>
+                    <h3 className='font-semibold mb-2'>Job Responsibility:</h3>
+                    <p className='mb-4'>
+                        Collaborating with cross-functional teams, UI/UX designers often work closely with other teams, including product management, engineering, and marketing, to ensure that the user interface is aligned with business and technical requirements.
+                    </p>
+                    <h3 className='font-semibold mb-2'>Educational Requirements:</h3>
+                    <p className='mb-4'>Bachelor degree to complete any reputational university.</p>
+                    <h3 className='font-semibold mb-2'>Experience:</h3>
+                    <p>2-3 Years in this field.</p>
+                </div>
+
+                {/* Job Details Section */}
+                <div className='lg:w-1/3 bg-gray-100 p-6 rounded-lg shadow-md'>
+                    <h2 className='text-2xl font-semibold mb-6'>Job Details</h2>
+                    <p className='mb-4'>
+                        <span className='font-semibold'>Salary:</span> 100K - 150K (Per Month)
+                    </p>
+                    <p className='mb-4'>
+                        <span className='font-semibold'>Job Title:</span> {job_title}
+                    </p>
+
+                    <h3 className='font-semibold text-lg mb-2'>Contact Information</h3>
+                    <p className='mb-2'>
+                        <span className='font-semibold'>Phone:</span> {phone}
+                    </p>
+                    <p className='mb-2'>
+                        <span className='font-semibold'>Email:</span> {email}
+                    </p>
+                    <p className='mb-2'>
+                        <span className='font-semibold'>Address:</span> {address}
+                    </p>
+
+                    <button className='w-full bg-purple-500 text-white rounded-lg py-3 mt-6'>Apply Now</button>
+                </div>
+            </div>
+
+            {/* Footer Section */}
+            <footer className='bg-gray-900 text-white py-10'>
+                <div className='text-center'>
+                    <p>CareerHub © 2024. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
-      </div>
-      <div className='flex space-x-4 mb-6'>
-        <span className='px-4 py-2 border border-sky-500 text-sky-400'>{remote_or_onsite}</span>
-        <span className='px-4 py-2 border border-sky-500 text-sky-400'>{job_type}</span>
-      </div>
-      <div className='flex space-x-10 mb-6'>
-        <div className='flex items-center'>
-          <img src='/icons/location2.png' alt='Location Icon' className='w-5 h-5 mr-2' />
-          <span>{location}</span>
-        </div>
-        <div className='flex items-center'>
-          <img src='/icons/money.png' alt='Salary Icon' className='w-5 h-5 mr-2' />
-          <span>{salary}</span>
-        </div>
-      </div>
-      <button className='px-8 py-4 text-white bg-gradient-to-r from-indigo-400 to-purple-500 rounded-md'>
-        Apply Now
-      </button>
-    </div>
-  );
+    );
 };
 
 export default JobDetails;
-
-/* othe other part-2*/ 
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import location2 from '../../assets/icons/location2.png';
-// import money from '../../assets/icons/money.png';
-
-// const ShowJob = ({ job }) => {
-//   const { company_name, id, logo, job_title, remote_or_onsite, job_type, location, salary } = job;
-
-//   return (
-//     <div className='mt-10'>
-//       <div className='border px-10 py-10 shadow-sm '>
-//         <div className='flex flex-col items-center justify-start px-4'>
-//           <img className='w-40 h-10' src={logo} alt={`${company_name} logo`} />
-//           <p className='-mx-10 mt-5 font-bold'>{job_title}</p>
-//           <p>{company_name}</p>
-//         </div>
-//         <div className='flex items-center justify-center mt-4'>
-//           <p className='mr-20 border border-sky-500 text-sky-400 px-5'>{remote_or_onsite}</p>
-//           <p className='border border-sky-500 text-sky-400 -mx-5 px-5'>{job_type}</p>
-//         </div>
-//         <div className='mb-5 flex items-center justify-center mt-4'>
-//           <div className='flex items-center justify-around'>
-//             <img src={location2} alt="Location Icon" className='w-5 h-5' />
-//             <p className='mr-20 ml-2 -mx-5'>{location}</p>
-//           </div>
-//           <div className='flex items-center justify-around'>
-//             <img src={money} alt="Salary Icon" className='w-5 h-5' />
-//             <p>{salary}</p>
-//           </div>
-//         </div>
-//         <div className='flex items-center justify-center'>
-//           <Link to={`/jobs/${id}`}>
-//             <button className='px-8 py-4 text-white bg-gradient-to-r from-indigo-400 to-purple-500 rounded-md'>
-//               View Details
-//             </button>
-//           </Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ShowJob;
-/*
-
-
-routing part----3
-*/  
-
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './component/Root/Root.jsx';
-import AppliedJob from './component/AppliedJob/AppliedJob';
-import Blog from './component/Blog/Blog';
-import Home from './component/Home/Home';
-import ErrorPage from './component/ErrorPage/ErrorPage';
-import JobDetails from './component/JobDetails/JobDetails'; // New Import
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root/>,
-    errorElement:<ErrorPage/>,
-    children: [
-      {
-        path:'/',
-        element:<Home/>
-      },
-      {
-        path:'/appliedJob',
-        element:<AppliedJob/>
-      },
-      {
-        path:'/blog',
-        element:<Blog/>
-      },
-      {
-        path:'/jobs/:id', // New Route for Job Details
-        element:<JobDetails/>
-      }
-    ]
-  }
-]);
-
-createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
-);
-
-
-// // Incorrect
-// <Link to={`/FeatureJob/ShowJob.jsx/${id}`}>
-//   <button>View Details</button>
-// </Link>
-
-// // Correct
-// <Link to={`/jobs/${id}`}>
-//   <button>View Details</button>
-// </Link>
-// import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-
-// const JobDetails = () => {
-//   const { id } = useParams();
-//   const [job, setJob] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(false);
-
-//   useEffect(() => {
-//     fetch('/jobs.json') // Ensure the path is correct
-//       .then(res => {
-//         if (!res.ok) {
-//           throw new Error('Network response was not ok');
-//         }
-//         return res.json();
-//       })
-//       .then(data => {
-//         const jobDetails = data.find(job => job.id === parseInt(id));
-//         if (jobDetails) {
-//           setJob(jobDetails);
-//         } else {
-//           setError(true);
-//         }
-//         setLoading(false);
-//       })
-//       .catch(() => {
-//         setError(true);
-//         setLoading(false);
-//       });
-//   }, [id]);
-
-//   if (loading) return <div>Loading...</div>;
-//   if (error || !job) return <div>Job not found.</div>;
-
-//   const { company_name, logo, job_title, remote_or_onsite, job_type, location, salary } = job;
-
-//   return (
-//     <div className='container mx-auto p-10 bg-white'>
-//       <div className='flex items-center mb-6'>
-//         <img className='w-40 h-10 mr-5' src={logo} alt={`${company_name} logo`} />
-//         <div>
-//           <h1 className='text-2xl font-bold'>{job_title}</h1>
-//           <p className='text-gray-600'>{company_name}</p>
-//         </div>
-//       </div>
-//       <div className='flex space-x-4 mb-6'>
-//         <span className='px-4 py-2 border border-sky-500 text-sky-400'>{remote_or_onsite}</span>
-//         <span className='px-4 py-2 border border-sky-500 text-sky-400'>{job_type}</span>
-//       </div>
-//       <div className='flex space-x-10 mb-6'>
-//         <div className='flex items-center'>
-//           <img src='/icons/location2.png' alt='Location Icon' className='w-5 h-5 mr-2' />
-//           <span>{location}</span>
-//         </div>
-//         <div className='flex items-center'>
-//           <img src='/icons/money.png' alt='Salary Icon' className='w-5 h-5 mr-2' />
-//           <span>{salary}</span>
-//         </div>
-//       </div>
-//       <button className='px-8 py-4 text-white bg-gradient-to-r from-indigo-400 to-purple-500 rounded-md'>
-//         Apply Now
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default JobDetails;

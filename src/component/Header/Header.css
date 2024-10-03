@@ -3,6 +3,7 @@
     font-weight: 700;
     font: bolder;
 
+
 }
 .Banner-button{
    color:white ;
@@ -12,3 +13,34 @@
     height:40%;
     object-fit:cover;    
 }
+/*
+
+  .header-container {
+    position: relative;
+    height: 100vh; /* Adjust the height as needed */
+    /* overflow: hidden; Ensures the image does not overflow
+  }  
+    */
+  
+  
+  /* .header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/bg2.png'); /* Ensure this path is correct */
+    /* background-size: cover; Adjust to fit the image nicely */
+    /* background-position: center; Center the image */
+    /* z-index: 0; Send it to the back */
+  /* }  */
+  
+  /* nav { */
+    /* position: relative; Ensures the nav is above the background */
+    /* z-index: 1; Bring the nav above the background image */
+  /* }  */
+  
+    /* .banner { */
+    /* z-index: 2; Bring the banner text above the nav */
+    /* }   */
+ 

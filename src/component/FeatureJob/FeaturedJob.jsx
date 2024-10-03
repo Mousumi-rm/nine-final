@@ -29,13 +29,12 @@ const FeaturedJob = () => {
                 }
             </section>
              <section className='my-36 flex items-center justify-center'>
-
-                 <div className={dataLength === loader.length ? 'hidden':''}>
-                 <button className='text-white  bg-gradient-to-r from-indigo-400 to-purple-500 px-4 py-2 rounded-md' 
-                 onClick={()=>setDataLength(loader.length)}>See All Jobs</button>
-                 </div>  
-                   <div className={ loader.length === dataLength  ? 'visible':'hidden'}>
-                     <button className='text-white  bg-gradient-to-r from-indigo-400 to-purple-500 px-4 py-2 rounded-md'  onClick={()=>setDataLength(4)} >Go back to home</button>
+                    <div className={dataLength === loader.length ? 'hidden':''}>
+                     <button className='text-white  bg-gradient-to-r from-indigo-400 to-purple-500 px-4 py-2 rounded-md' 
+                     onClick={()=>setDataLength(loader.length)}>See All Jobs</button>
+                    </div>  
+                    <div className={ loader.length === dataLength  ? 'visible':'hidden'}>
+                     <button className='text-white  bg-gradient-to-r from-indigo-400 to-purple-500 px-4 py-2 rounded-md' onClick={()=>setDataLength(4)} >Go back to home</button>
                     </div>             
             </section>
         </div>

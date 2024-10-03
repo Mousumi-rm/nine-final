@@ -10,6 +10,7 @@ import Blog from './component/Blog/Blog';
 import Home from './component/Home/Home';
 import ErrorPage from './component/ErrorPage/ErrorPage'
 import JobDetails from './component/JobDetails/JobDetails';
+// import {dataLoader} from './component/utility/DataLoader'
 
 
 
@@ -25,7 +26,12 @@ const router = createBrowserRouter([
       },
       {
         path:'/appliedJob',
-        element:<AppliedJob/>,
+        element:<AppliedJob/>,      
+        // loader:async()=>{
+        //   const res = await fetch('/public/jobs.json');
+        //   const data = await res.json();
+        //   return data;
+        // }
       },
       {
         path:'/blog',
@@ -40,6 +46,7 @@ const router = createBrowserRouter([
           const job = data.find(job => job.id === parseInt(params.id)); // Find the job by id
           return job; // Return the job to the component
            },
+          
       }
   
     ]

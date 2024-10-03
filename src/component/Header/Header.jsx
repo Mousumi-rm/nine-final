@@ -12,13 +12,15 @@ const Header = () => {
 
   const link =<>
       <NavLink className={({isActive})=>(isActive ? 'text-cyan-500':'')} onClick={()=>setShow(false)}
-      to='/'> <small className='mr-5' >Home</small></NavLink>
+      to='/'> <small className='mr-5'>Home</small></NavLink>
 
       <NavLink className={({isActive})=>(isActive ? 'text-cyan-500':'')}  onClick={()=>setShow(true)}
-       to='/appliedJob'><small className='mr-5'>appliedJob</small></NavLink>
+       to='/appliedJob'><small className='mr-5'>Applied Job</small></NavLink>
 
       <NavLink className={({isActive})=>(isActive ? 'text-cyan-500':'')} onClick={()=>setShow(true)} to='/Blog'><small  
       className='mr-5'>Blog</small></NavLink> 
+
+      
 
        
   </>  
@@ -26,21 +28,33 @@ const Header = () => {
   
 
     return (
-        <nav className='my-container flex items-center justify-between bg-purple-50 '>
-           <p className='banner mt-10 font-bold sm:flex-col'>Step-On</p>
-              <div className='mt-10 text-gray-500'>
+      <div className='relative overflow-hidden vh-100 my-container'>   
+                  <label className='flex items-end justify-end absolute top-0 right-0 bg-cover bg-center z-0'>
+                         {show ? <img className='w-40 h-30 ' src={bg2} alt="" /> : null}
+                     </label>
+                   
+          <nav  className=' flex flex-col items-center justify-between sm:flex-row  my-container  z-0'>
+           
+            <p className='banner pr-0 font-bold sm:flex-col mt-10'>Step-On</p>
+              <div className=' text-gray-500 mt-10'>
                 {link}
               </div>
-             <label className='flex justify-center items-center relative'>
-                <button className='relative Banner-button mt-10  bg-gradient-to-r from-indigo-400 to-purple-500 px-5 py-3
+             <div className=' '>
+                <button className=' mt-10 Banner-button   bg-gradient-to-r from-indigo-400 to-purple-500 px-5 py-3
                  rounded-md'>Applied-Now</button>
-                  {
-                    show ? <img className='banner-img' src={bg2} alt="" /> : null
-                  }
-                </label>
+                </div>
+            
+            </nav>
            
-        </nav>
+
+                  
+      </div> 
+          
+                
+      
+       
     );
 };
 
 export default Header;
+
